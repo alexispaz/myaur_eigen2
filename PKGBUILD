@@ -11,14 +11,14 @@ arch=('any')
 url='http://eigen.tuxfamily.org/index.php?title=Main_Page'
 license=('GPL' 'LGPL3')
 makedepends=('cmake' 'pkg-config')
-source=("http://bitbucket.org/eigen/eigen/get/${pkgver}.tar.bz2")
-sha1sums=('461546be98b964d8d5d2adb0f1c31ba0e42efc38')
+source=("git+https://gitlab.com/libeigen/eigen.git#tag=2.0.17")
+sha1sums=('SKIP')
 
 build() {
   cd "${srcdir}"
-  mkdir build
+  mkdir -p build
   cd build
-  cmake ../eigen-eigen-b23437e61a07 \
+  cmake ../eigen \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr
   make
